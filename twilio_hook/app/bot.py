@@ -17,7 +17,7 @@ def bot_i():
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://uma:5001/webhooks/rest/webhook'
+    webhook = 'http://localhost:5001/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info('requests_post, webhook, var_i:', json, webhook, var_i)
@@ -46,7 +46,7 @@ def bot_ii():
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://sato:5003/webhooks/rest/webhook'
+    webhook = 'http://localhost:5003/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
