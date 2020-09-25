@@ -26,7 +26,7 @@ services:
       ME_CONFIG_BASICAUTH_PASSWORD: gorda_love456
       ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: boquito&selma321
+      ME_CONFIG_MONGODB_ADMINPASSWORD: boquito_selma321
 
   twilio_hook:
     build: twilio_hook
