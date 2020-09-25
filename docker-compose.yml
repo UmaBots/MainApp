@@ -43,7 +43,7 @@ services:
   uma:
     build: umaBot
     ports:
-      - 5002:5002
+      - 5001:5002
     expose:
       - 5005
     volumes:
@@ -51,6 +51,8 @@ services:
 
   sato:
     build: satoBot
+    ports:
+      - 5003:5002
     expose:
       - 5005
     volumes:
