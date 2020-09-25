@@ -22,7 +22,7 @@ def bot_i():
     json = requests_post.json()
     app.logger.info('requests_post, webhook, var_i:', json, webhook, var_i)
     cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
-    print(cliente['sato_tracker_store']['uma_talks'].insert_one({'i':var_i, 'o': json}).inserted_id)
+    print(cliente['uma_tracker_store']['uma_talks'].insert_one({'i':var_i, 'o': json}).inserted_id)
     r = '<pre>'
     for j in json:
         print(j)
