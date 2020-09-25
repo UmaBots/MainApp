@@ -41,7 +41,7 @@ services:
     command: flask run --host=0.0.0.0 --port=5000      
 
   uma:
-    build: umaBot/rasa
+    build: umaBot
     ports:
       - "5001:5001"
       - "5002:5002"
@@ -49,7 +49,7 @@ services:
       - uma-volumei:/bot
 
   sato:
-    build: satoBot/rasa
+    build: satoBot
     ports:
       - "5003:5003"
       - "5004:5004"

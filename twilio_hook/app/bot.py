@@ -10,14 +10,14 @@ app = Flask(__name__)
 def bot_iii():
     return 'Ok'
 
-@app.route('/bot', methods=['GET'])
+@app.route('/umabot', methods=['POST'])
 def bot_i():
     incoming_msg = request.values.get('message', '').lower()
     var_i = {
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://web1:5005/webhooks/rest/webhook'
+    webhook = 'http://uma:5001/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info('requests_post, webhook, var_i:', json, webhook, var_i)
@@ -36,7 +36,7 @@ def bot_i():
     return r + '<pre>'
 
 
-@app.route('/bot', methods=['POST'])
+@app.route('/satobot', methods=['POST'])
 def bot_ii():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
@@ -46,7 +46,7 @@ def bot_ii():
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://web1:5005/webhooks/rest/webhook'
+    webhook = 'http://sato:5003/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
@@ -65,4 +65,4 @@ def bot_ii():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=True, port=5001)
+    app.run(host="0.0.0.0", debug=True, port=5000)
