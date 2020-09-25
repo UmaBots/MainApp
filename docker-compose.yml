@@ -58,4 +58,6 @@ services:
     volumes:
       - sato-volumei:/bot
 
-      
+  networks:
+    default:
+    attachable: true
