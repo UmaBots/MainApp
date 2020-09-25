@@ -1,0 +1,70 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- mood_great
+- mood_unhappy
+- bot_challenge
+- negar
+- licenciar
+- transferir
+- renovacao_cnh
+- orçamento
+- parcelar
+- estado_documento
+- processo_pcd
+- define_pcd
+- informar_placa
+responses:
+  utter_greet:
+  - text: Ei! Como você está?
+  utter_did_that_help:
+  - text: Isso te ajudou?
+  utter_happy:
+  - text: Ótimo, continue!
+  utter_goodbye:
+  - text: Tchau
+  utter_iamabot:
+  - text: Eu sou um bot da Uma Bots
+  utter_placa_renavam:
+  - text: Poderia nos passar a placa/renavam para levantar no sistema por gentileza?
+  utter_planos1:
+  - text: Trabalhamos com planos em até 18x com pagamento através de cartão
+  utter_cnh1:
+  - text: Renovação - transferência - pontuação - suspensão  - inclusão de EAR  e
+      rebaixamento de categoria . Qual a categoria ? Qual cidade está registrada?
+      Qual a data de validade ?
+  utter_plano_sem_juro:
+  - text: Trabalhamos com planos até 18x, todo com juros
+  utter_estado_documento:
+  - text: Favor passar o nome completo que será emitido para levantar no sistema
+  utter_pcd1:
+  - text: Sim, trabalhamos com o processo de solicitação de Isenção de IPI-ICMS e
+      IPVA  para veículos Zero e IPVA para veículos usados. Fazemos toda assessoria
+      desde o início
+  utter_define_pcd:
+  - text: As iniciais para -Pessoas com deficiência. toda pessoa com alguma deficiência
+      mesmo nao aparente e constar na lista que abrange o benefício na Sefaz  tem
+      direito
+  utter_utter_pcd2:
+  - text: A isenção para adquirir veículos novos com o teto de até R$ 70,000
+  utter_obrigado:
+  - text: Muito Obrigado!
+actions:
+- utter_planos1
+- utter_cnh1
+- utter_plano_sem_juro
+- utter_estado_documento
+- utter_pcd1
+- utter_define_pcd
+- utter_utter_pcd2
+- utter_greet
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_placa_renavam
+- utter_obrigado
