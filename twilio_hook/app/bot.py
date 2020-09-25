@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def bot_iii():
-    return 'Ok'
+    return 'Oki...'
 
 @app.route('/umabot', methods=['POST'])
 def bot_i():
@@ -21,7 +21,7 @@ def bot_i():
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info('requests_post, webhook, var_i:', json, webhook, var_i)
-    cliente = MongoClient('mongo', 27017,username='root', password='(boquito&selma321)')
+    cliente = MongoClient('mongo', 27017,username='root', password='boquito&selma321')
     print(cliente['sato_tracker_store']['talks'].insert_one({'i':var_i, 'o': json}).inserted_id)
     r = '<pre>'
     for j in json:
@@ -50,7 +50,7 @@ def bot_ii():
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
-    cliente = MongoClient('mongo', 27017,username='root', password='(boquito&selma321)')
+    cliente = MongoClient('mongo', 27017,username='root', password='boquito&selma321')
     print(cliente['sato_tracker_store']['talks'].insert_one({'i':request.values,'o': json}).inserted_id)
     for j in json:
         print(j)
