@@ -12,7 +12,7 @@ services:
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: boquitoselma321
+      MONGO_INITDB_ROOT_PASSWORD: boquito_selma321
     volumes:
       - mongo-volumei:/data/db
   
@@ -26,7 +26,7 @@ services:
       ME_CONFIG_BASICAUTH_PASSWORD: gorda_love456
       ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: boquitoselma321
+      ME_CONFIG_MONGODB_ADMINPASSWORD: boquito_selma321
 
   twilio_hook:
     build: twilio_hook
@@ -44,7 +44,7 @@ services:
     build: umaBot
     ports:
       - "5001:5005"
-      # - "5002:5002"
+      - "5002:5002"
     volumes:
       - uma-volumei:/bot
 
@@ -52,7 +52,7 @@ services:
     build: satoBot
     ports:
       - "5003:5005"
-      # - "5004:5002"
+      - "5004:5002"
     volumes:
       - sato-volumei:/bot
 
