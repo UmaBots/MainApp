@@ -1,0 +1,59 @@
+version: '3.1'
+
+volumes:
+  mongo-volumei:
+  uma-volumei:
+  sato-volumei:
+
+services:
+  
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: boquito&selma321
+    volumes:
+      - momgo-volumei:/data/db
+  
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: paulista
+      ME_CONFIG_BASICAUTH_PASSWORD: gordalove456
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: boquito&selma321
+
+  twilio_hook:
+    build: twilio_hook
+    volumes:
+      - ./twilio_hook/app:/app
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=bot.py
+      - FLASK_DEBUG=1
+      - 'RUN=flask run --host=0.0.0.0 --port=5000'
+    command: flask run --host=0.0.0.0 --port=5000      
+
+  uma:
+    build: umaBot/rasa
+    ports:
+      - "5001:5001"
+      - "5002:5002"
+    volumes:
+      - uma-volumei:/bot
+
+  sato:
+    build: satoBot/rasa
+    ports:
+      - "5003:5003"
+      - "5004:5004"
+    volumes:
+      - sato-volumei:/bot
+
+      
