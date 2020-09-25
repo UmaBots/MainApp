@@ -43,7 +43,7 @@ services:
   uma:
     build: umaBot
     ports:
-      - "5001:5005"
+      - "5005:5005"
     volumes:
       - uma-volumei:/bot
 
