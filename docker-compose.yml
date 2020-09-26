@@ -43,16 +43,17 @@ services:
   uma:
     build: umaBot
     ports:
-      - "5001:5005"
       - "5002:5002"
+    expose: 
+      - "5001:5005"      
     volumes:
       - uma-volumei:/bot
 
   sato:
     build: satoBot
     ports:
-      - "5003:5005"
       - "5004:5002"
-    volumes:
+    expose: 
+      - "5003:5005"
+      volumes:
       - sato-volumei:/bot
-      
