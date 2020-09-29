@@ -12,28 +12,29 @@ def bot_iii():
 @app.route('/umabot', methods=['POST'])
 def bot_i():
     app.logger.info(request.values)
-    incoming_msg = request.values.get('message', '').lower()
+    incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
     var_i = {
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://uma:5005/webhooks/rest/webhook'
+    webhook = 'http://sato:5005/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
-    app.logger.info(requests_post)
     json = requests_post.json()
-    app.logger.info(['requests_post, webhook, var_i:', json, webhook, var_i])
+    app.logger.info([json, var_i])
     cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
-    print(cliente['uma_tracker_store']['uma_talks'].insert_one({'i':var_i, 'o': json}).inserted_id)
+    print(cliente['sato_tracker_store']['sato_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
     for j in json:
         print(j)
         text = 'text'
         if text in j:
             j_text_ = j[text]
             msg.body(j_text_)
+        # image = 'image'
+        # if image in j:
+        #     msg.media(image)  # não funfa ainda TODO
     return str(resp)
-
 
 @app.route('/satobot', methods=['POST'])
 def bot_ii():
