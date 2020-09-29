@@ -55,5 +55,5 @@ services:
       - "5004:5002"
     expose: 
       - "5003:5005"
-      volumes:
+    volumes:
       - sato-volumei:/bot
