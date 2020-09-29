@@ -11,6 +11,7 @@ def bot_iii():
 
 @app.route('/umabot', methods=['POST'])
 def bot_i():
+    app.logger.info(request.values)
     incoming_msg = request.values.get('message', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
