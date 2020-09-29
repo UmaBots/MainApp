@@ -4,7 +4,8 @@
 - Oi
 - bom Dia
 - boa noite
-- Olá
+- ma oe
+- oe
 
 ## intent:adeus
 - tchau
@@ -36,6 +37,7 @@
 - Estou me sentindo muito bem
 - Estou estou ótimo
 - Eu estou bem
+- bele bele
 
 ## intent:mood_unhappy
 - triste
