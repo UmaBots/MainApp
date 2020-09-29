@@ -22,17 +22,13 @@ def bot_i():
     app.logger.info(['requests_post, webhook, var_i:', json, webhook, var_i])
     cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
     print(cliente['uma_tracker_store']['uma_talks'].insert_one({'i':var_i, 'o': json}).inserted_id)
-    r = '<pre>'
     for j in json:
         print(j)
         text = 'text'
         if text in j:
             j_text_ = j[text]
-            r += j_text_ + '\n'
-        # image = 'image'
-        # if image in j:
-        #     r += j[image] + '\n'
-    return r + '<pre>'
+            msg.body(j_text_)
+    return str(resp)
 
 
 @app.route('/satobot', methods=['POST'])
