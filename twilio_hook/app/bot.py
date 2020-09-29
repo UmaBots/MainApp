@@ -5,7 +5,6 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-
 @app.route('/', methods=['GET'])
 def bot_iii():
     return 'Oki...'
@@ -20,7 +19,7 @@ def bot_i():
     webhook = 'http://uma:5005/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
-    app.logger.info('requests_post, webhook, var_i:', json, webhook, var_i)
+    app.logger.info(['requests_post, webhook, var_i:', json, webhook, var_i])
     cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
     print(cliente['uma_tracker_store']['uma_talks'].insert_one({'i':var_i, 'o': json}).inserted_id)
     r = '<pre>'
@@ -46,7 +45,7 @@ def bot_ii():
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://sato:5003/webhooks/rest/webhook'
+    webhook = 'http://sato:5005/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
