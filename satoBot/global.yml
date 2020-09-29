@@ -1,6 +1,6 @@
 metrics:
-  date: 2020-08-06 02:01:05.203575
+  date: 2020-09-29 03:02:08.125566
   enabled: true
-  rasa_user_id: c2a9b168e0ad471e9d6a102c3afd2b79
+  rasa_user_id: 05f6ce54407c4fbf94ab62de8f816fde
   welcome_shown: true
 terms_accepted: true
