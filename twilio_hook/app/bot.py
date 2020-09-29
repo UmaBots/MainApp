@@ -12,6 +12,8 @@ def bot_iii():
 @app.route('/umabot', methods=['POST'])
 def bot_i():
     incoming_msg = request.values.get('message', '').lower()
+    resp = MessagingResponse()
+    msg = resp.message()
     var_i = {
         "sender": "Rasa",
         "message": incoming_msg
