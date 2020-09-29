@@ -21,6 +21,7 @@ def bot_i():
     }
     webhook = 'http://uma:5005/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
+    app.logger.info(requests_post)
     json = requests_post.json()
     app.logger.info(['requests_post, webhook, var_i:', json, webhook, var_i])
     cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
