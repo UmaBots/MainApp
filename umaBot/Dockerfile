@@ -1,6 +1,6 @@
 FROM python:3.7
 
-# COPY global.yml /root/.config/rasa/global.yml
+COPY global.yml /root/.config/rasa/global.yml
 COPY . /bot
 WORKDIR /bot
 RUN pip install rasa && pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
