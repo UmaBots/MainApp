@@ -1,0 +1,6 @@
+metrics:
+  date: 
+  enabled: true
+  rasa_user_id: 
+  welcome_shown: true
+terms_accepted: false
