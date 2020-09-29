@@ -19,12 +19,12 @@ def bot_i():
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://sato:5005/webhooks/rest/webhook'
+    webhook = 'http://uma:5005/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
     cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
-    print(cliente['sato_tracker_store']['sato_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
+    print(cliente['talk_store']['uma_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
     for j in json:
         print(j)
         text = 'text'
@@ -51,7 +51,7 @@ def bot_ii():
     json = requests_post.json()
     app.logger.info([json, var_i])
     cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
-    print(cliente['sato_tracker_store']['sato_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
+    print(cliente['talk_store']['sato_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
     for j in json:
         print(j)
         text = 'text'
