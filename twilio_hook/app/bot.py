@@ -9,8 +9,8 @@ app = Flask(__name__)
 def oki():
     return 'Oki...'
 
-@app.route('/thelmabot', methods=['POST'])
-def thelmabot():
+@app.route('/thelma', methods=['POST'])
+def thelma():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
@@ -37,8 +37,8 @@ def thelmabot():
             msg.media(j[image])
 
 
-@app.route('/umabot', methods=['POST'])
-def umabot():
+@app.route('/uma', methods=['POST'])
+def uma():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
@@ -66,8 +66,8 @@ def umabot():
             msg.media(j[image])
             
     return str(resp)
-@app.route('/satobot', methods=['POST'])
-def satobot():
+@app.route('/sato', methods=['POST'])
+def sato():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()

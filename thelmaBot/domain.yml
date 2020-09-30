@@ -25,7 +25,7 @@ responses:
   - text: "Tchau"
 
   utter_iamabot:
-  - text: "Eu sou a Thelma, desenvolvido pela Umabots. Estou aqui para te ajudar. O que você deseja?"
+  - text: "Eu sou a Thelma, o bot de atendimento da Umabots. Estou aqui para te ajudar. O que você deseja?"
 
 session_config:
   session_expiration_time: 60
