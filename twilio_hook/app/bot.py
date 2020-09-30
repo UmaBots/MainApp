@@ -35,7 +35,7 @@ def bot_i():
         image = 'image'
         if image in j:
             app.logger.info(j)
-            msg.body(j[image])
+            msg.media(j[image])
             
     return str(resp)
 @app.route('/satobot', methods=['POST'])
