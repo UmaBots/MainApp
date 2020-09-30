@@ -31,11 +31,13 @@ def bot_i():
         if text in j:
             j_text_ = j[text]
             msg.body(j_text_)
-        # image = 'image'
-        # if image in j:
-        #     msg.media(image)  # não funfa ainda TODO
+# twilio_hook_1    | [2020-09-30 00:15:53,856] INFO in bot: [[{'recipient_id': 'Rasa', 'text': 'Aqui está algo para animá-lo:'}, {'recipient_id': 'Rasa', 'image': 'https://i.imgur.com/nGF1K8f.jpg'}, {'recipient_id': 'Rasa', 'text': 'Isso ajudou você?'}], {'sender': 'Rasa', 'message': 'não muito bem'}]
+        image = 'image'
+        if image in j:
+            app.logger.info(j)
+            msg.body(j[image])
+            
     return str(resp)
-
 @app.route('/satobot', methods=['POST'])
 def bot_ii():
     app.logger.info(request.values)
