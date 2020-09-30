@@ -6,11 +6,11 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
-def bot_iii():
+def oki():
     return 'Oki...'
 
 @app.route('/thelmabot', methods=['POST'])
-def bot_i():
+def thelmabot():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
@@ -24,7 +24,7 @@ def bot_i():
     json = requests_post.json()
     app.logger.info([json, var_i])
     cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
-    print(cliente['talk_store']['uma_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
+    print(cliente['talk_store']['thelma_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
     for j in json:
         print(j)
         text = 'text'
@@ -38,7 +38,7 @@ def bot_i():
 
 
 @app.route('/umabot', methods=['POST'])
-def bot_i():
+def umabot():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
@@ -67,7 +67,7 @@ def bot_i():
             
     return str(resp)
 @app.route('/satobot', methods=['POST'])
-def bot_ii():
+def satobot():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
