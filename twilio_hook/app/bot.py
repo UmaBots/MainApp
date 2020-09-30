@@ -19,7 +19,7 @@ def bot_i():
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://uma:5005/webhooks/rest/webhook'
+    webhook = 'http://thelmabot:5005/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
@@ -31,7 +31,6 @@ def bot_i():
         if text in j:
             j_text_ = j[text]
             msg.body(j_text_)
-# twilio_hook_1    | [2020-09-30 00:15:53,856] INFO in bot: [[{'recipient_id': 'Rasa', 'text': 'Aqui está algo para animá-lo:'}, {'recipient_id': 'Rasa', 'image': 'https://i.imgur.com/nGF1K8f.jpg'}, {'recipient_id': 'Rasa', 'text': 'Isso ajudou você?'}], {'sender': 'Rasa', 'message': 'não muito bem'}]
         image = 'image'
         if image in j:
             app.logger.info(j)
