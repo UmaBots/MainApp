@@ -19,7 +19,7 @@ def bot_i():
         "sender": "Rasa",
         "message": incoming_msg
     }
-    webhook = 'http://thelmabot:5005/webhooks/rest/webhook'
+    webhook = 'http://thelma:5005/webhooks/rest/webhook'
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
