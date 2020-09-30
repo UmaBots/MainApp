@@ -1,6 +1,6 @@
 metrics:
-  date: 2020-09-29 03:07:51.033239
+  date: 2020-09-30 00:51:49.382821
   enabled: true
-  rasa_user_id: d99a3fd2222c4f6e9dc27fb9d60c4d8a
-  welcome_shown: true
+  rasa_user_id: 6b6d6dab601f43649e2a87b3d089b7df
+  welcome_shown: false
 terms_accepted: true
