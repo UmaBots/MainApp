@@ -4,6 +4,9 @@ volumes:
   mongo-volumeii:
   uma-volumei:
   sato-volumei:
+  thelma-volumei:
+
+
 
 services:
   
@@ -52,8 +55,17 @@ services:
   sato:
     build: satoBot
     ports:
-      - "5004:5002"
+      - "5001:5002"
     expose: 
       - "5005"
     volumes:
       - sato-volumei:/bot
+
+  thelma:
+    build: thelmaBot
+    ports:
+      - "5003:5002"
+    expose: 
+      - "5005"
+    volumes:
+      - thelma-volumei:/bot
