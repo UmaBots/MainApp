@@ -2,7 +2,7 @@ from flask import Flask, request, session
 import requests
 from twilio.twiml.messaging_response import MessagingResponse
 from pymongo import MongoClient
-
+app.secret_key = b'!gordalove6$'
 app = Flask(__name__)
 
 
