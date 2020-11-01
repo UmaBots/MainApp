@@ -18,13 +18,13 @@ def oki1():
     incoming_msg = request.values.get('Body', '').lower()
     session_values_get = None
     bot = 'bot1'
+    int1 = int(incoming_msg)
     if bot in session:
         session_values_get = session[bot]
         i = int(session_values_get)
         app.logger.info(isinstance(i, int))
         app.logger.info(type(i))
-    int1 = int(incoming_msg)
-    if isinstance(int1, int) and not session[bot]:
+    elif isinstance(int1, int):
         session[bot] = int1
     app.logger.info(['22 >>', session_values_get, incoming_msg])
     resp = MessagingResponse()
