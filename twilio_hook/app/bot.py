@@ -6,8 +6,17 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
-def oki():
+def oki0():
     return 'Oki...'
+
+@app.route('/', methods=['POST'])
+def oki1():
+    app.logger.info(request.values)
+    incoming_msg = request.values.get('Body', '').lower()
+    resp = MessagingResponse()
+    msg = resp.message()
+    msg.body("OE")
+    return str(resp)
 
 @app.route('/thelma', methods=['POST'])
 def thelma():
@@ -35,6 +44,7 @@ def thelma():
         if image in j:
             app.logger.info(j)
             msg.media(j[image])
+    return str(resp)
 
 
 @app.route('/uma', methods=['POST'])
@@ -66,6 +76,7 @@ def uma():
             msg.media(j[image])
             
     return str(resp)
+
 @app.route('/sato', methods=['POST'])
 def sato():
     app.logger.info(request.values)
