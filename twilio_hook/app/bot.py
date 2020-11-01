@@ -17,9 +17,9 @@ def oki1():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     session_values_get = None
-    app.logger.info(['20 >>', session_values_get, incoming_msg])
     if 'bot' in session:
         session_values_get = session['bot']
+        app.logger.info(['22 >>', session_values_get, incoming_msg])
     else:
         session['bot'] = incoming_msg
     resp = MessagingResponse()
