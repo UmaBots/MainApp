@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, session
 import requests
 from twilio.twiml.messaging_response import MessagingResponse
 from pymongo import MongoClient
@@ -12,7 +12,9 @@ def oki0():
 @app.route('/', methods=['POST'])
 def oki1():
     app.logger.info(request.values)
-    # incoming_msg = request.values.get('Body', '').lower()
+    incoming_msg = request.values.get('Body', '').lower()
+    var0 = session.values
+    app.logger.info(var0)
     resp = MessagingResponse()
     msg = resp.message()
     msg.body("""digite:
