@@ -15,7 +15,11 @@ def oki1():
     # incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
-    msg.body("OE")
+    msg.body("""digite:
+    1 - SatoBot
+    2 - VivaBot
+    3 - ClesioBot
+    """)
     return str(resp)
 
 @app.route('/thelma', methods=['POST'])
