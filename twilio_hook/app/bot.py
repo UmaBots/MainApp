@@ -23,8 +23,9 @@ def oki1():
         i = int(session_values_get)
         app.logger.info(isinstance(i, int))
         app.logger.info(type(i))
-    if isinstance(incoming_msg, int):
-        session[bot] = incoming_msg
+    int1 = int(incoming_msg)
+    if isinstance(int1, int):
+        session[bot] = int1
     app.logger.info(['22 >>', session_values_get, incoming_msg])
     resp = MessagingResponse()
     msg = resp.message()
