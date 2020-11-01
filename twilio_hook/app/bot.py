@@ -19,6 +19,9 @@ def oki1():
     session_values_get = None
     if 'bot' in session:
         session_values_get = session['bot']
+        i = session_values_get
+        app.logger.info(isinstance(i, int))
+        app.logger.info(type(i))
     if not session_values_get:
         session['bot'] = incoming_msg
     app.logger.info(['22 >>', session_values_get, incoming_msg])
