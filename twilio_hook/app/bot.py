@@ -17,7 +17,7 @@ def oki1():
     if session_values_get:
         app.logger.info(session_values_get)        
     else:
-        session.values.set('bot', incoming_msg)   
+        session.values.bot = incoming_msg
     resp = MessagingResponse()
     msg = resp.message()
     msg.body("""digite:
