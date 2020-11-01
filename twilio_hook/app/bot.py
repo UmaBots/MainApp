@@ -12,7 +12,7 @@ def oki0():
 @app.route('/', methods=['POST'])
 def oki1():
     app.logger.info(request.values)
-    incoming_msg = request.values.get('Body', '').lower()
+    # incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
     msg.body("OE")
