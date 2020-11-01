@@ -13,8 +13,11 @@ def oki0():
 def oki1():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
-    var0 = session.values
-    app.logger.info(var0)
+    session_values_get = None
+    if session_values_get:
+        app.logger.info(session_values_get)        
+    else:
+        session.values.set('bot', incoming_msg)   
     resp = MessagingResponse()
     msg = resp.message()
     msg.body("""digite:
