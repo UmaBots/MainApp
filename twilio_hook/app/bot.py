@@ -5,19 +5,21 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
+
 @app.route('/', methods=['GET'])
 def oki0():
     return 'Oki...'
+
 
 @app.route('/', methods=['POST'])
 def oki1():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
-    session_values_get = None
+    session_values_get = session['bot']
     if session_values_get:
-        app.logger.info(session_values_get)        
+        app.logger.info(session_values_get)
     else:
-        session.values['bot'] = incoming_msg
+        session['bot'] = incoming_msg
     resp = MessagingResponse()
     msg = resp.message()
     msg.body("""digite:
@@ -26,6 +28,7 @@ def oki1():
     3 - ClesioBot
     """)
     return str(resp)
+
 
 @app.route('/thelma', methods=['POST'])
 def thelma():
@@ -41,8 +44,10 @@ def thelma():
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
-    cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
-    print(cliente['talk_store']['thelma_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
+    cliente = MongoClient('mongo', 27017, username='root',
+                          password='boquito_selma321')
+    print(cliente['talk_store']['thelma_talks'].insert_one(
+        {'i': request.values, 'o': json}).inserted_id)
     for j in json:
         print(j)
         text = 'text'
@@ -70,8 +75,10 @@ def uma():
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
-    cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
-    print(cliente['talk_store']['uma_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
+    cliente = MongoClient('mongo', 27017, username='root',
+                          password='boquito_selma321')
+    print(cliente['talk_store']['uma_talks'].insert_one(
+        {'i': request.values, 'o': json}).inserted_id)
     for j in json:
         print(j)
         text = 'text'
@@ -83,8 +90,9 @@ def uma():
         if image in j:
             app.logger.info(j)
             msg.media(j[image])
-            
+
     return str(resp)
+
 
 @app.route('/sato', methods=['POST'])
 def sato():
@@ -100,8 +108,10 @@ def sato():
     requests_post = requests.post(webhook, json=var_i)
     json = requests_post.json()
     app.logger.info([json, var_i])
-    cliente = MongoClient('mongo', 27017,username='root', password='boquito_selma321')
-    print(cliente['talk_store']['sato_talks'].insert_one({'i':request.values,'o': json}).inserted_id)
+    cliente = MongoClient('mongo', 27017, username='root',
+                          password='boquito_selma321')
+    print(cliente['talk_store']['sato_talks'].insert_one(
+        {'i': request.values, 'o': json}).inserted_id)
     for j in json:
         print(j)
         text = 'text'
