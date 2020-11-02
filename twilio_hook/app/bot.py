@@ -14,7 +14,7 @@ def oki0():
 
 @app.route('/', methods=['POST'])
 def oki1():
-    app.logger.info([request.values, session.values])
+    app.logger.info([request.values, session])
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
@@ -31,13 +31,13 @@ def oki1():
     c_bot = 'CBot'
 
     if not bot in session:
-        if incoming_msg == sato_bot:
+        if incoming_msg.casefold() == sato_bot.casefold():
             session[bot] = sato_bot
             msg.body(ok_)
-        elif incoming_msg == viva_bot:
+        elif incoming_msg.casefold() == viva_bot.casefold():
             session[bot] = viva_bot
             msg.body(ok_)
-        elif incoming_msg == c_bot:
+        elif incoming_msg.casefold() == c_bot.casefold():
             session[bot] = c_bot
             msg.body(ok_)
         else:
