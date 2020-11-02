@@ -19,7 +19,7 @@ def oki1():
     resp = MessagingResponse()
     msg = resp.message()
     session_values_get = None
-    bot = 'bot3'
+    bot = 'bot4'
     int1 = None
     try:
         int1 = int(incoming_msg)
@@ -34,6 +34,12 @@ def oki1():
         session_values_get = session[bot]
         i = session_values_get
         app.logger.info([isinstance(i, int), type(i)])
+        if i == 3:
+            return thelma(incoming_msg)
+        elif i == 2:
+            return viva(incoming_msg)
+        elif i == 1:
+            return sato(incoming_msg)
     elif isinstance(int1, int):
         session[bot] = int1
     
@@ -41,10 +47,7 @@ def oki1():
     return str(resp)
 
 
-@app.route('/thelma', methods=['POST'])
-def thelma():
-    app.logger.info(request.values)
-    incoming_msg = request.values.get('Body', '').lower()
+def thelma(incoming_msg):
     resp = MessagingResponse()
     msg = resp.message()
     var_i = {
@@ -72,7 +75,6 @@ def thelma():
     return str(resp)
 
 
-@app.route('/uma', methods=['POST'])
 def uma():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
@@ -96,7 +98,6 @@ def uma():
         if text in j:
             j_text_ = j[text]
             msg.body(j_text_)
-# twilio_hook_1    | [2020-09-30 00:15:53,856] INFO in bot: [[{'recipient_id': 'Rasa', 'text': 'Aqui está algo para animá-lo:'}, {'recipient_id': 'Rasa', 'image': 'https://i.imgur.com/nGF1K8f.jpg'}, {'recipient_id': 'Rasa', 'text': 'Isso ajudou você?'}], {'sender': 'Rasa', 'message': 'não muito bem'}]
         image = 'image'
         if image in j:
             app.logger.info(j)
@@ -105,10 +106,7 @@ def uma():
     return str(resp)
 
 
-@app.route('/sato', methods=['POST'])
-def sato():
-    app.logger.info(request.values)
-    incoming_msg = request.values.get('Body', '').lower()
+def sato(incoming_msg):
     resp = MessagingResponse()
     msg = resp.message()
     var_i = {
