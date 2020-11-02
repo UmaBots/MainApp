@@ -32,18 +32,19 @@ def oki1():
 
     if bot in session:
         int1 = session[bot]
+        app.logger.info(['>>>', isinstance(int1, int), type(int1)])
         if int1 == 3:
             return thelma(incoming_msg)
         elif int1 == 2:
             return viva(incoming_msg)
         elif int1 == 1:
             return sato(incoming_msg)
-        else:
-            msg.body(bot_)
-    else:
+    elif isinstance(int1, int):
         session[bot] = int1
         msg.body('ok!')
-    app.logger.info(['>>>', isinstance(int1, int), type(int1)])
+    else:
+        msg.body(bot_)
+
     return str(resp)
 
 
