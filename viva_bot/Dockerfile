@@ -4,6 +4,6 @@ FROM python:3.7
 COPY . /bot
 WORKDIR /bot
 RUN pip install rasa && pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
-CMD export RASA_X_PASSWORD="boquito098"  && rasa train 
+CMD export RASA_X_PASSWORD="boquito098"  && rasa train && rasa run actions
 # && rasa x
 EXPOSE 5005 5002
