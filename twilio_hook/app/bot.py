@@ -18,32 +18,38 @@ def oki1():
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
-    bot = 'bot_session'
-    int1 = None
+    bot = 'bot_session0'
     bot_ = """Digite:
-        1 para SatoBot,
-        2 para VivaBot,
-        3 para ClesioBot
+        SatoBot,
+        VivaBot
+        ou
+        CBot
         """
-    try:
-        int1 = int(incoming_msg)
-    except:
-        pass        
+    ok_ = 'ok!'
+    sato_bot = 'SatoBot'
+    viva_bot = 'VivaBot'
+    c_bot = 'CBot'
 
-    if bot in session:
-        int1 = session[bot]
-        app.logger.info(['>>>', isinstance(int1, int), type(int1)])
-        if int1 == 3:
-            return thelma(incoming_msg)
-        elif int1 == 2:
-            return viva(incoming_msg)
-        elif int1 == 1:
-            return sato(incoming_msg)
-    elif isinstance(int1, int):
-        session[bot] = int1
-        msg.body('ok!')
+    if not bot in session:
+        if incoming_msg == sato_bot:
+            session[bot] = sato_bot
+            msg.body(ok_)
+        if incoming_msg == viva_bot:
+            session[bot] = viva_bot
+            msg.body(ok_)
+        if incoming_msg == c_bot:
+            session[bot] = c_bot
+            msg.body(ok_)
     else:
-        msg.body(bot_)
+        int1 = session[bot]
+        if int1 == c_bot:
+            resp = thelma(incoming_msg)
+        elif int1 == viva_bot:
+            resp = viva(incoming_msg)
+        elif int1 == sato_bot:
+            resp = sato(incoming_msg)
+        else:
+            msg.body(bot_)
 
     return str(resp)
 
