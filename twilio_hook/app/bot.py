@@ -159,7 +159,7 @@ def viva(incoming_msg, sender_id):
     app.logger.info([json, var_i])
     cliente = MongoClient('mongo', 27017, username='root',
                           password='boquito_selma321')
-    print(cliente['talk_store']['uma_talks'].insert_one(
+    print(cliente['talk_store']['viva_talks'].insert_one(
         {'i': request.values, 'o': json}).inserted_id)
     for j in json:
         print(j)
