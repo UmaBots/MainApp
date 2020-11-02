@@ -15,7 +15,10 @@ def oki0():
 @app.route('/', methods=['POST'])
 def oki1():
     app.logger.info(request.values)
-    incoming_msg = request.values.get('Body', '').lower()
+    body = 'Body'
+    incoming_msg = request.values.get(body, '').lower()
+    s = 'From'
+    sender_id = request.values.get(s, '').lower()
     resp = MessagingResponse()
     msg = resp.message()
     bot = 'bot_session0'
@@ -42,22 +45,22 @@ def oki1():
     elif bot in session:
         int1 = session[bot]
         if int1.casefold() == c_bot.casefold():
-            resp = thelma(incoming_msg)
+            resp = thelma(incoming_msg, sender_id)
         elif int1.casefold() == viva_bot.casefold():
-            resp = viva(incoming_msg)
+            resp = viva(incoming_msg, sender_id)
         elif int1.casefold() == sato_bot.casefold():
-            resp = sato(incoming_msg)
+            resp = sato(incoming_msg, sender_id)
     else:
         msg.body(bot_)
 
     return str(resp)
 
 
-def thelma(incoming_msg):
+def thelma(incoming_msg, sender_id):
     resp = MessagingResponse()
     msg = resp.message()
     var_i = {
-        "sender": "Rasa",
+        "sender": sender_id,
         "message": incoming_msg
     }
     webhook = 'http://thelma:5005/webhooks/rest/webhook'
@@ -111,11 +114,11 @@ def uma():
     return str(resp)
 
 
-def sato(incoming_msg):
+def sato(incoming_msg, sender_id):
     resp = MessagingResponse()
     msg = resp.message()
     var_i = {
-        "sender": "Rasa",
+        "sender": sender_id,
         "message": incoming_msg
     }
     webhook = 'http://sato:5005/webhooks/rest/webhook'
