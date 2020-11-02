@@ -48,6 +48,7 @@ services:
       - "5002:5002"
     expose: 
       - "5005"
+      - "5055"
     volumes:
       - uma-volumei:/bot
 
