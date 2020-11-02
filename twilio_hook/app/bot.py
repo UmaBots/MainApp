@@ -42,7 +42,7 @@ def oki1():
     elif isinstance(int1, int):
         session[bot] = int1
 
-    app.logger.info(['30 >>', session_values_get, incoming_msg])
+    app.logger.info([session_values_get, incoming_msg])
     return str(resp)
 
 
