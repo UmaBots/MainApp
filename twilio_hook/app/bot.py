@@ -16,25 +16,25 @@ def oki0():
 def oki1():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
+    resp = MessagingResponse()
+    msg = resp.message()
     session_values_get = None
-    bot = 'bot2'
+    bot = 'bot3'
     int1 = None
     int1 = int(incoming_msg)
     if bot in session:
         session_values_get = session[bot]
         i = session_values_get
-        app.logger.info(isinstance(i, int))
-        app.logger.info(type(i))
+        app.logger.info([isinstance(i, int), type(i)])
     elif isinstance(int1, int):
         session[bot] = int1
-    app.logger.info(['22 >>', session_values_get, incoming_msg])
-    resp = MessagingResponse()
-    msg = resp.message()
-    msg.body("""digite:
+    else:
+        msg.body("""digite:
     1 - SatoBot
     2 - VivaBot
     3 - ClesioBot
     """)
+    app.logger.info(['30 >>', session_values_get, incoming_msg])
     return str(resp)
 
 
