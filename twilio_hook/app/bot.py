@@ -18,7 +18,6 @@ def oki1():
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
-    session_values_get = None
     bot = 'bot4'
     int1 = None
     try:
@@ -42,7 +41,7 @@ def oki1():
             return sato(incoming_msg)
     elif isinstance(int1, int):
         session[bot] = int1
-    
+
     app.logger.info(['30 >>', session_values_get, incoming_msg])
     return str(resp)
 
@@ -76,7 +75,6 @@ def thelma(incoming_msg):
 
 
 def uma():
-    app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
