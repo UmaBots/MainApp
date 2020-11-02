@@ -30,18 +30,15 @@ def oki1():
     viva_bot = 'VivaBot'
     c_bot = 'CBot'
 
-    if not bot in session:
-        if incoming_msg.casefold() == sato_bot.casefold():
-            session[bot] = sato_bot
-            msg.body(ok_)
-        elif incoming_msg.casefold() == viva_bot.casefold():
-            session[bot] = viva_bot
-            msg.body(ok_)
-        elif incoming_msg.casefold() == c_bot.casefold():
-            session[bot] = c_bot
-            msg.body(ok_)
-        else:
-            msg.body(bot_)
+    if incoming_msg.casefold() == sato_bot.casefold():
+        session[bot] = sato_bot
+        msg.body(ok_)
+    elif incoming_msg.casefold() == viva_bot.casefold():
+        session[bot] = viva_bot
+        msg.body(ok_)
+    elif incoming_msg.casefold() == c_bot.casefold():
+        session[bot] = c_bot
+        msg.body(ok_)
     else:
         int1 = session[bot]
         if int1.casefold() == c_bot.casefold():
