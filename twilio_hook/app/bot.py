@@ -23,27 +23,27 @@ def oki1():
     try:
         int1 = int(incoming_msg)
     except:
-        msg.body("""Digite:
-    1 para SatoBot,
-    2 para VivaBot,
-    3 para ClesioBot
-    """)
+        pass
 
     if bot in session:
-        session_values_get = session[bot]
-        i = session_values_get
-        app.logger.info([isinstance(i, int), type(i)])
-        if i == 3:
+        int1 = session[bot]
+        app.logger.info([isinstance(int1, int), type(int1)])
+        if int1 == 3:
             return thelma(incoming_msg)
-        elif i == 2:
+        elif int1 == 2:
             return viva(incoming_msg)
-        elif i == 1:
+        elif int1 == 1:
             return sato(incoming_msg)
-    elif isinstance(int1, int):
+        else:
+            return msg.body("""Digite:
+        1 para SatoBot,
+        2 para VivaBot,
+        3 para ClesioBot
+        """)
+    else:
         session[bot] = int1
-
-    app.logger.info([session_values_get, incoming_msg])
-    return str(resp)
+        return str('ok!')
+            
 
 
 def thelma(incoming_msg):
