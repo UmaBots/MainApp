@@ -125,9 +125,6 @@ def sato(incoming_msg):
         if text in j:
             j_text_ = j[text]
             msg.body(j_text_)
-        # image = 'image'
-        # if image in j:
-        #     msg.media(image)  # não funfa ainda TODO
     return str(resp)
 
 
