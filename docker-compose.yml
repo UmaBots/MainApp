@@ -4,8 +4,9 @@ volumes:
   mongo-volumeii:
   uma-volumei:
   sato-volumei:
-  thelma-volumei:
-
+  c_bot-volumei:
+  viva-volumei:
+    
 services:
   
   mongo:
@@ -42,7 +43,7 @@ services:
     command: flask run --host=0.0.0.0 --port=5000      
 
   uma:
-    build: umaBot
+    build: uma_bot
     ports:
       - "5002:5002"
     expose: 
@@ -51,7 +52,7 @@ services:
       - uma-volumei:/bot
 
   sato:
-    build: satoBot
+    build: sat_bot
     ports:
       - "5001:5002"
     expose: 
@@ -59,11 +60,20 @@ services:
     volumes:
       - sato-volumei:/bot
 
-  thelma:
-    build: thelmaBot
+  c_bot:
+    build: c_bot
     ports:
       - "5003:5002"
     expose: 
       - "5005"
     volumes:
-      - thelma-volumei:/bot
+      - c_bot-volumei:/bot
+
+  viva:
+    build: viva_bot
+    ports:
+      - "5004:5002"
+    expose: 
+      - "5005"
+    volumes:
+      - viva-volumei:/bot
