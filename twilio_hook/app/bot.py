@@ -18,13 +18,13 @@ def oki1():
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
-    bot = 'bot4'
+    bot = 'bot_session'
     int1 = None
     try:
         int1 = int(incoming_msg)
     except:
-        msg.body("""digite:
-    1 para falar com o SatoBot,
+        msg.body("""Digite:
+    1 para SatoBot,
     2 para VivaBot,
     3 para ClesioBot
     """)
