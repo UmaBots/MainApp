@@ -47,7 +47,7 @@ services:
     ports:
       - "5002:5002"
     expose: 
-      - "5005"      
+      - "5005"
     volumes:
       - uma-volumei:/bot
 
@@ -57,6 +57,7 @@ services:
       - "5001:5002"
     expose: 
       - "5005"
+      - "5055"
     volumes:
       - sato-volumei:/bot
 
@@ -66,6 +67,7 @@ services:
       - "5003:5002"
     expose: 
       - "5005"
+      - "5055"
     volumes:
       - c_bot-volumei:/bot
 
@@ -75,5 +77,6 @@ services:
       - "5004:5002"
     expose: 
       - "5005"
+      - "5055"
     volumes:
       - viva-volumei:/bot
