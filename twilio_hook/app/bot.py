@@ -43,7 +43,6 @@ def oki1():
     else:
         session[bot] = int1
         return str('ok!')
-            
 
 
 def thelma(incoming_msg):
