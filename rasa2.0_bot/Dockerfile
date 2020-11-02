@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.7
 
 COPY global.yml /root/.config/rasa/global.yml
 COPY . /bot
