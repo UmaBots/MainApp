@@ -39,7 +39,7 @@ def oki1():
     elif incoming_msg.casefold() == c_bot.casefold():
         session[bot] = c_bot
         msg.body(ok_)
-    else:
+    elif bot in session:
         int1 = session[bot]
         if int1.casefold() == c_bot.casefold():
             resp = thelma(incoming_msg)
@@ -47,8 +47,8 @@ def oki1():
             resp = viva(incoming_msg)
         elif int1.casefold() == sato_bot.casefold():
             resp = sato(incoming_msg)
-        else:
-            msg.body(bot_)
+    else:
+        msg.body(bot_)
 
     return str(resp)
 
