@@ -145,6 +145,34 @@ def sato(incoming_msg, sender_id):
             msg.body(j_text_)
     return str(resp)
 
+def viva(incoming_msg, sender_id):
+    incoming_msg = request.values.get('Body', '').lower()
+    resp = MessagingResponse()
+    msg = resp.message()
+    var_i = {
+        "sender": sender_id,
+        "message": incoming_msg
+    }
+    webhook = 'http://viva:5005/webhooks/rest/webhook'
+    requests_post = requests.post(webhook, json=var_i)
+    json = requests_post.json()
+    app.logger.info([json, var_i])
+    cliente = MongoClient('mongo', 27017, username='root',
+                          password='boquito_selma321')
+    print(cliente['talk_store']['uma_talks'].insert_one(
+        {'i': request.values, 'o': json}).inserted_id)
+    for j in json:
+        print(j)
+        text = 'text'
+        if text in j:
+            j_text_ = j[text]
+            msg.body(j_text_)
+        image = 'image'
+        if image in j:
+            app.logger.info(j)
+            msg.media(j[image])
+
+    return str(resp)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True, port=5000)
