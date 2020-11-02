@@ -24,9 +24,9 @@ def oki1():
         int1 = int(incoming_msg)
     except:
         msg.body("""digite:
-    1 - SatoBot
-    2 - VivaBot
-    3 - ClesioBot
+    1 para falar com o SatoBot,
+    2 para VivaBot,
+    3 para ClesioBot
     """)
 
     if bot in session:
