@@ -6,7 +6,7 @@ volumes:
   sato-volumei:
   c_bot-volumei:
   viva-volumei:
-    
+
 services:
   
   mongo:
@@ -52,7 +52,7 @@ services:
       - uma-volumei:/bot
 
   sato:
-    build: sat_bot
+    build: sato_bot
     ports:
       - "5001:5002"
     expose: 
