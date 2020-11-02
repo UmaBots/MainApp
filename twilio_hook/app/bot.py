@@ -46,7 +46,6 @@ def oki1():
     elif incoming_msg.casefold() == uma_bot.casefold():
         session[bot] = uma_bot
         msg.body(ok_)
-
     elif bot in session:
         int1 = session[bot]
         if int1.casefold() == c_bot.casefold():
@@ -57,7 +56,6 @@ def oki1():
             resp = sato(incoming_msg, sender_id)
         elif int1.casefold() == uma_bot.casefold():
             resp = uma(incoming_msg, sender_id)
-
     else:
         msg.body(bot_)
 
