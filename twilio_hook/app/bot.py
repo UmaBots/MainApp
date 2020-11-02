@@ -23,7 +23,11 @@ def oki1():
     try:
         int1 = int(incoming_msg)
     except:
-        pass
+        msg.body("""Digite:
+        1 para SatoBot,
+        2 para VivaBot,
+        3 para ClesioBot
+        """)
 
     if bot in session:
         int1 = session[bot]
@@ -35,14 +39,15 @@ def oki1():
         elif int1 == 1:
             return sato(incoming_msg)
         else:
-            return msg.body("""Digite:
+            msg.body("""Digite:
         1 para SatoBot,
         2 para VivaBot,
         3 para ClesioBot
         """)
     else:
         session[bot] = int1
-        return str('ok!')
+        return msg.body('ok!')
+    return str(resp)
 
 
 def thelma(incoming_msg):
