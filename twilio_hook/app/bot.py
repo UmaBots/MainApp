@@ -32,6 +32,7 @@ def oki1():
     sato_bot = 'SatoBot'
     viva_bot = 'VivaBot'
     c_bot = 'CBot'
+    uma_bot = 'UmaBot'
 
     if incoming_msg.casefold() == sato_bot.casefold():
         session[bot] = sato_bot
@@ -42,6 +43,10 @@ def oki1():
     elif incoming_msg.casefold() == c_bot.casefold():
         session[bot] = c_bot
         msg.body(ok_)
+    elif incoming_msg.casefold() == uma_bot.casefold():
+        session[bot] = uma_bot
+        msg.body(ok_)
+
     elif bot in session:
         int1 = session[bot]
         if int1.casefold() == c_bot.casefold():
@@ -50,6 +55,9 @@ def oki1():
             resp = viva(incoming_msg, sender_id)
         elif int1.casefold() == sato_bot.casefold():
             resp = sato(incoming_msg, sender_id)
+        elif int1.casefold() == uma_bot.casefold():
+            resp = uma(incoming_msg, sender_id)
+
     else:
         msg.body(bot_)
 
@@ -84,12 +92,12 @@ def thelma(incoming_msg, sender_id):
     return str(resp)
 
 
-def uma():
+def uma(incoming_msg, sender_id):
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
     var_i = {
-        "sender": "Rasa",
+        "sender": sender_id,
         "message": incoming_msg
     }
     webhook = 'http://uma:5005/webhooks/rest/webhook'
