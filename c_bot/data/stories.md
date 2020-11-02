@@ -1,31 +1,34 @@
-## caminho feliz
-* saudar
-  - utter_greet
-* mood_great
-  - utter_happy
-
-## caminho triste 1
-* saudar
-  - utter_greet
-* mood_unhappy
-  - utter_cheer_up
-  - utter_did_that_help
-* afirmar
-  - utter_happy
-
-## caminho triste 2
-* saudar
-  - utter_greet
-* mood_unhappy
-  - utter_cheer_up
-  - utter_did_that_help
-* negar
-  - utter_goodbye
-
-## diga adeus
-* adeus
-  - utter_goodbye
-
-## bot challenge
-* bot_challenge
-  - utter_iamabot
+version: "2.0"
+stories:
+- story: caminho feliz
+  steps:
+  - intent: saudar
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+- story: caminho triste 1
+  steps:
+  - intent: saudar
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: afirmar
+  - action: utter_happy
+- story: caminho triste 2
+  steps:
+  - intent: saudar
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: negar
+  - action: utter_goodbye
+- story: diga adeus
+  steps:
+  - intent: adeus
+  - action: utter_goodbye
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
