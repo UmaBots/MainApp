@@ -43,7 +43,7 @@ def oki1():
             msg.body(bot_)
     else:
         session[bot] = int1
-        return msg.body('ok!')
+        msg.body('ok!')
     return str(resp)
 
 
