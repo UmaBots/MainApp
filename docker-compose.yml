@@ -6,6 +6,8 @@ volumes:
   sato-volumei:
   c_bot-volumei:
   viva-volumei:
+  rasa2.0-volumei:
+
 
 services:
   
@@ -81,3 +83,13 @@ services:
       - "5055"
     volumes:
       - viva-volumei:/bot
+
+  rasa2.0:
+    build: rasa2.0_bot
+    ports:
+      - "5005:5002"
+    expose: 
+      - "5005"
+      - "5055"
+    volumes:
+      - rasa2.0-volumei:/bot
