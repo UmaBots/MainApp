@@ -28,7 +28,7 @@ def oki1():
     try:
         int1 = int(incoming_msg)
     except:
-        msg.body(bot_)
+        pass        
 
     if bot in session:
         int1 = session[bot]
