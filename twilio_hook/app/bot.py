@@ -17,11 +17,12 @@ def oki1():
     app.logger.info(request.values)
     incoming_msg = request.values.get('Body', '').lower()
     session_values_get = None
-    bot = 'bot1'
+    bot = 'bot2'
+    int1 = None
     int1 = int(incoming_msg)
     if bot in session:
         session_values_get = session[bot]
-        i = int(session_values_get)
+        i = session_values_get
         app.logger.info(isinstance(i, int))
         app.logger.info(type(i))
     elif isinstance(int1, int):
