@@ -20,14 +20,15 @@ def oki1():
     msg = resp.message()
     bot = 'bot_session'
     int1 = None
-    try:
-        int1 = int(incoming_msg)
-    except:
-        msg.body("""Digite:
+    bot_ = """Digite:
         1 para SatoBot,
         2 para VivaBot,
         3 para ClesioBot
-        """)
+        """
+    try:
+        int1 = int(incoming_msg)
+    except:
+        msg.body(bot_)
 
     if bot in session:
         int1 = session[bot]
@@ -39,11 +40,7 @@ def oki1():
         elif int1 == 1:
             return sato(incoming_msg)
         else:
-            msg.body("""Digite:
-        1 para SatoBot,
-        2 para VivaBot,
-        3 para ClesioBot
-        """)
+            msg.body(bot_)
     else:
         session[bot] = int1
         return msg.body('ok!')
