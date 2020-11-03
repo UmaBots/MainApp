@@ -8,7 +8,7 @@ intents:
 slots:
   email:
     type: unfeaturized
-    influence_conversation: false
+    influence_conversation: true
 responses:
   utter_greet:
   - text: "Ola! Como posso te ajudar?\n"
