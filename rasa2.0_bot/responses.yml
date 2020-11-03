@@ -9,6 +9,6 @@ responses:
            Qual seu email?
    utter_subscribed:
        - text: |
-           Cheque sua caixa {email} para confirmar a assinatura!
+           Cheque {email} para confirmar a assinatura
        - text: |
            Tudo certo! Cheque {email} para confirmar assinatura
