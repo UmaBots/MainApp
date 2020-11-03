@@ -11,58 +11,58 @@ volumes:
 
 services:
   
-  mongo:
-    image: mongo
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: boquito_selma321
-    volumes:
-      - mongo-volumeii:/data/db
+  # mongo:
+  #   image: mongo
+  #   restart: always
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: boquito_selma321
+  #   volumes:
+  #     - mongo-volumeii:/data/db
   
-  mongo-express:
-    image: mongo-express
-    restart: always
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_BASICAUTH_USERNAME: paulista
-      ME_CONFIG_BASICAUTH_PASSWORD: gorda_love456
-      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: boquito_selma321
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     ME_CONFIG_BASICAUTH_USERNAME: paulista
+  #     ME_CONFIG_BASICAUTH_PASSWORD: gorda_love456
+  #     ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: boquito_selma321
 
-  twilio_hook:
-    build: twilio_hook
-    volumes:
-      - ./twilio_hook/app:/app
-    ports:
-      - "5000:5000"
-    environment:
-      - FLASK_APP=bot.py
-      - FLASK_DEBUG=1
-      - 'RUN=flask run --host=0.0.0.0 --port=5000'
-    command: flask run --host=0.0.0.0 --port=5000      
+  # twilio_hook:
+  #   build: twilio_hook
+  #   volumes:
+  #     - ./twilio_hook/app:/app
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     - FLASK_APP=bot.py
+  #     - FLASK_DEBUG=1
+  #     - 'RUN=flask run --host=0.0.0.0 --port=5000'
+  #   command: flask run --host=0.0.0.0 --port=5000      
 
-  uma:
-    build: uma_bot
-    ports:
-      - "5002:5002"
-    expose: 
-      - "5005"
-      - "5055"
-    volumes:
-      - uma-volumei:/bot
+  # uma:
+  #   build: uma_bot
+  #   ports:
+  #     - "5002:5002"
+  #   expose: 
+  #     - "5005"
+  #     - "5055"
+  #   volumes:
+  #     - uma-volumei:/bot
 
-  sato:
-    build: sato_bot
-    ports:
-      - "5001:5002"
-    expose: 
-      - "5005"
-      - "5055"
-    volumes:
-      - sato-volumei:/bot
+  # sato:
+  #   build: sato_bot
+  #   ports:
+  #     - "5001:5002"
+  #   expose: 
+  #     - "5005"
+  #     - "5055"
+  #   volumes:
+  #     - sato-volumei:/bot
 
   c_bot:
     build: c_bot
@@ -74,15 +74,15 @@ services:
     volumes:
       - c_bot-volumei:/bot
 
-  viva:
-    build: viva_bot
-    ports:
-      - "5004:5002"
-    expose: 
-      - "5005"
-      - "5055"
-    volumes:
-      - viva-volumei:/bot
+  # viva:
+  #   build: viva_bot
+  #   ports:
+  #     - "5004:5002"
+  #   expose: 
+  #     - "5005"
+  #     - "5055"
+  #   volumes:
+  #     - viva-volumei:/bot
 
   rasa2.0:
     build: rasa2.0_bot
