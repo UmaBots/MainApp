@@ -36,7 +36,7 @@ def oki1():
     rasa_bot = 'rasa2bot'
 
 
-if incoming_msg.casefold() == sato_bot.casefold():
+    if incoming_msg.casefold() == sato_bot.casefold():
         session[bot] = sato_bot
         msg.body(ok_)
     elif incoming_msg.casefold() == viva_bot.casefold():
