@@ -33,8 +33,10 @@ def oki1():
     viva_bot = 'VivaBot'
     c_bot = 'CBot'
     uma_bot = 'UmaBot'
+    rasa_bot = 'rasa2bot'
 
-    if incoming_msg.casefold() == sato_bot.casefold():
+
+if incoming_msg.casefold() == sato_bot.casefold():
         session[bot] = sato_bot
         msg.body(ok_)
     elif incoming_msg.casefold() == viva_bot.casefold():
@@ -46,8 +48,11 @@ def oki1():
     elif incoming_msg.casefold() == uma_bot.casefold():
         session[bot] = uma_bot
         msg.body(ok_)
+    elif incoming_msg.casefold() == rasa_bot.casefold():
+        session[bot] = rasa_bot
+        msg.body(ok_)
+
     elif bot in session:
-        int1 = session[bot]
         if int1.casefold() == c_bot.casefold():
             resp = thelma(incoming_msg, sender_id)
         elif int1.casefold() == viva_bot.casefold():
@@ -56,6 +61,9 @@ def oki1():
             resp = sato(incoming_msg, sender_id)
         elif int1.casefold() == uma_bot.casefold():
             resp = uma(incoming_msg, sender_id)
+        elif int1.casefold() == rasa_bot.casefold():
+            resp = rasa2(incoming_msg, sender_id)
+        int1 = session[bot]
     else:
         msg.body(bot_)
 
@@ -171,6 +179,36 @@ def viva(incoming_msg, sender_id):
             msg.media(j[image])
 
     return str(resp)
+
+def rasa2(incoming_msg, sender_id):
+    incoming_msg = request.values.get('Body', '').lower()
+    resp = MessagingResponse()
+    msg = resp.message()
+    var_i = {
+        "sender": sender_id,
+        "message": incoming_msg
+    }
+    webhook = 'http://rasa2.0:5005/webhooks/rest/webhook'
+    requests_post = requests.post(webhook, json=var_i)
+    json = requests_post.json()
+    app.logger.info([json, var_i])
+    cliente = MongoClient('mongo', 27017, username='root',
+                          password='boquito_selma321')
+    print(cliente['talk_store']['rasa2.0_talks'].insert_one(
+        {'i': request.values, 'o': json}).inserted_id)
+    for j in json:
+        print(j)
+        text = 'text'
+        if text in j:
+            j_text_ = j[text]
+            msg.body(j_text_)
+        image = 'image'
+        if image in j:
+            app.logger.info(j)
+            msg.media(j[image])
+
+    return str(resp)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True, port=5000)
