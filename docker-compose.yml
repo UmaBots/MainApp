@@ -4,7 +4,7 @@ volumes:
   mongo-volumeii:
   uma-volumei:
   sato-volumei:
-  c_bot-volumei:
+  c_bot-volumeii:
   viva-volumei:
   rasa2.0-volumei:
 
@@ -72,7 +72,7 @@ services:
       - "5005"
       - "5055"
     volumes:
-      - c_bot-volumei:/bot
+      - c_bot-volumeii:/bot
 
   # viva:
   #   build: viva_bot
