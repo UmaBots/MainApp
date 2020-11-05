@@ -2,10 +2,10 @@ version: '3.1'
 
 volumes:
   mongo-volumeii:
-  uma-volumei:
-  sato-volumei:
+  uma-volumeii:
+  sato-volumeii:
   c_bot-volumeii:
-  viva-volumei:
+  viva-volumeii:
   rasa2.0-volumei:
 
 
@@ -44,25 +44,25 @@ services:
       - 'RUN=flask run --host=0.0.0.0 --port=5000'
     command: flask run --host=0.0.0.0 --port=5000      
 
-  # uma:
-  #   build: uma_bot
-  #   ports:
-  #     - "5002:5002"
-  #   expose: 
-  #     - "5005"
-  #     - "5055"
-  #   volumes:
-  #     - uma-volumei:/bot
+  uma:
+    build: uma_bot
+    ports:
+      - "5002:5002"
+    expose: 
+      - "5005"
+      - "5055"
+    volumes:
+      - uma-volumeii:/bot
 
-  # sato:
-  #   build: sato_bot
-  #   ports:
-  #     - "5001:5002"
-  #   expose: 
-  #     - "5005"
-  #     - "5055"
-  #   volumes:
-  #     - sato-volumei:/bot
+  sato:
+    build: sato_bot
+    ports:
+      - "5001:5002"
+    expose: 
+      - "5005"
+      - "5055"
+    volumes:
+      - sato-volumeii:/bot
 
   c_bot:
     build: c_bot
@@ -74,15 +74,15 @@ services:
     volumes:
       - c_bot-volumeii:/bot
 
-  # viva:
-  #   build: viva_bot
-  #   ports:
-  #     - "5004:5002"
-  #   expose: 
-  #     - "5005"
-  #     - "5055"
-  #   volumes:
-  #     - viva-volumei:/bot
+  viva:
+    build: viva_bot
+    ports:
+      - "5004:5002"
+    expose: 
+      - "5005"
+      - "5055"
+    volumes:
+      - viva-volumeii:/bot
 
   rasa2.0:
     build: rasa2.0_bot
