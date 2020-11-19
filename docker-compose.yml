@@ -3,8 +3,6 @@ version: '3.1'
 volumes:
   mongo-volumeii:
 
-
-
 services:
   
   mongo:
@@ -48,7 +46,7 @@ services:
       - "5005"
       - "5055"
     volumes:
-      - ./uma_bot/bot
+      - ./uma_bot:/bot
 
   sato:
     build: sato_bot
