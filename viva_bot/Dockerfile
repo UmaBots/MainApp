@@ -1,6 +1,6 @@
 FROM python:3.7
 
-COPY ./bot/global.yml /root/.config/rasa/global.yml
+COPY ./global.yml /root/.config/rasa/global.yml
 COPY ./bot /bot
 WORKDIR /bot
 RUN pip install -U pip
