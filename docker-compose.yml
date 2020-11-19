@@ -2,11 +2,7 @@ version: '3.1'
 
 volumes:
   mongo-volumeii:
-  uma-volumeii:
-  sato-volumeii:
-  c_bot-volumeii:
-  viva-volumeii:
-  rasa2.0-volumei:
+
 
 
 services:
@@ -52,7 +48,7 @@ services:
       - "5005"
       - "5055"
     volumes:
-      - uma-volumeii:/bot
+      - ./uma_bot/bot
 
   sato:
     build: sato_bot
@@ -62,7 +58,7 @@ services:
       - "5005"
       - "5055"
     volumes:
-      - sato-volumeii:/bot
+      - ./sato_bot:/bot
 
   c_bot:
     build: c_bot
@@ -72,7 +68,7 @@ services:
       - "5005"
       - "5055"
     volumes:
-      - c_bot-volumeii:/bot
+      - ./c_bot:/bot
 
   viva:
     build: viva_bot
@@ -82,7 +78,7 @@ services:
       - "5005"
       - "5055"
     volumes:
-      - viva-volumeii:/bot
+      - ./viva_bot:/bot
 
   rasa2.0:
     build: rasa2.0_bot
@@ -92,4 +88,4 @@ services:
       - "5005"
       - "5055"
     volumes:
-      - rasa2.0-volumei:/bot
+      - ./rasa2.0_bot:/bot
