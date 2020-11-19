@@ -1,7 +1,7 @@
 FROM python:3.7
 
 COPY global.yml /root/.config/rasa/global.yml
-COPY ../bot /bot
+COPY ./bot /bot
 WORKDIR /bot
 RUN pip install -U pip
 RUN pip install rasa 
