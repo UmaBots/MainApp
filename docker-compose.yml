@@ -48,15 +48,15 @@ services:
     volumes:
       - ./uma_bot:/bot
 
-  sato:
-    build: sato_bot
-    ports:
-      - "5001:5002"
-    expose: 
-      - "5005"
-      - "5055"
-    volumes:
-      - ./sato_bot:/bot
+  # sato:
+  #   build: sato_bot
+  #   ports:
+  #     - "5001:5002"
+  #   expose: 
+  #     - "5005"
+  #     - "5055"
+  #   volumes:
+  #     - ./sato_bot:/bot
 
   c_bot:
     build: c
@@ -68,22 +68,22 @@ services:
     volumes:
       - ./c/bot:/bot
 
-  viva:
-    build: viva_bot
-    ports:
-      - "5004:5002"
-    expose: 
-      - "5005"
-      - "5055"
-    volumes:
-      - ./viva_bot:/bot
+  # viva:
+  #   build: viva_bot
+  #   ports:
+  #     - "5004:5002"
+  #   expose: 
+  #     - "5005"
+  #     - "5055"
+  #   volumes:
+  #     - ./viva_bot:/bot
 
-  rasa2.0:
-    build: rasa2.0_bot
-    ports:
-      - "5005:5002"
-    expose: 
-      - "5005"
-      - "5055"
-    volumes:
-      - ./rasa2.0_bot:/bot
+  # rasa2.0:
+  #   build: rasa2.0_bot
+  #   ports:
+  #     - "5005:5002"
+  #   expose: 
+  #     - "5005"
+  #     - "5055"
+  #   volumes:
+  #     - ./rasa2.0_bot:/bot
