@@ -38,15 +38,15 @@ services:
       - 'RUN=flask run --host=0.0.0.0 --port=5000'
     command: flask run --host=0.0.0.0 --port=5000      
 
-  uma:
-    build: uma_bot
-    ports:
-      - "5002:5002"
-    expose: 
-      - "5005"
-      - "5055"
-    volumes:
-      - ./uma_bot:/bot
+  # uma:
+  #   build: uma_bot
+  #   ports:
+  #     - "5002:5002"
+  #   expose: 
+  #     - "5005"
+  #     - "5055"
+  #   volumes:
+  #     - ./uma_bot:/bot
 
   # sato:
   #   build: sato_bot
