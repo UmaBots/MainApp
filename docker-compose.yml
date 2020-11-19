@@ -59,7 +59,7 @@ services:
       - ./sato_bot:/bot
 
   c_bot:
-    build: c_bot
+    build: c
     ports:
       - "5003:5002"
     expose: 
